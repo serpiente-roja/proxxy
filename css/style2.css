@@ -1,121 +1,72 @@
-body {
-  background: black;
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.p5 {
-  margin-right: 500px;
-  align-content: top;
+html, body {
+  height: 100%;
+  background-color: black;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-auto-rows: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid columns */
+  grid-auto-rows: 300px; /* Fixed row height for larger screens */
   grid-gap: 10px;
-  align-content: top;
-  justify-content: top;
   background: black;
-  margin: 0 auto;
-  border-top: 500em;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 1400px; /* Maximum width of the grid */
+  margin: auto;
+  padding: 20px; /* Padding inside the grid container */
 }
 
-.vid {
-  position: absolute;
-  top: 5%;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
+.grid > * {
+  position: relative; /* Ensure overlay positioning */
 }
 
-h1 {
-  position: absolute;
-  font-size: 100px;
-  font-family: 'random';
-  font-weight: normal;
-  font-style: cursive;
-  font-family: monospace;
-  text-align: right;
-  color: white;
+.grid img,
+.grid video {
+  width: 100%; /* Force images and videos to occupy full width of their grid cell */
+  height: 100%; /* Force images and videos to occupy full height of their grid cell */
+  object-fit: cover; /* Maintain aspect ratio and fill the container */
 }
 
 .overlay {
-  width: 5em;
-  height: auto;
   position: absolute;
-  font-size: 11px;
-  top: 1%;
-  left: 16%;
-  opacity: 0;
-  pointer-events: none;
-  font-family: Arial;
-  background: #ededed;
-  border-radius: 0.6px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.35);
-  padding: 1px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease; /* Smooth transition for overlay */
 }
 
-.img1:hover .overlay {
-  opacity: 1;
+.overlay:hover {
+  opacity: 1; /* Show overlay on hover */
 }
 
-.img2:hover .overlay {
-  width: 7em;
-  left: 40%;
-  opacity: 1;
-}
-
-.img3:hover .overlay{
-  width: 4em;
-  left: 70%;
-  opacity: 1;
-}
-
-.img4:hover .overlay{
-  width: 4em;
-  left: 94%;
-  opacity: 1;
-}
-
-.img5:hover .overlay {
-  top: 34%;
-  left: 17%;
-  width: 8.5em;
-  opacity: 1;
-}
-
-.img6:hover .overlay{
-  top: 34%;
-  left: 45%;
-  opacity: 1;
-}
-
-.img7:hover .overlay{
-  width: 3em;
-  top: 34%;
-  left: 71%;
-  opacity: 1;
-}
-
-.img8:hover .overlay{
-  width: 3em;
-  top: 34%;
-  left: 95%;
-  opacity: 1;
-}
-
-.text {
+.desc {
   color: white;
-  font-size: 80px;
-  font-family: 'random';
-  font-weight: normal;
-  font-style: cursive;
-  font-family: monospace;
-  position: absolute;
-  top: 40%;
-  right: 5%;
+  font-size: 24px;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on screens up to 1024px */
+    grid-auto-rows: 250px; /* Adjusted row height for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr; /* 1 column on screens up to 768px */
+    grid-auto-rows: 200px; /* Smaller row height for smaller screens */
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
 }
