@@ -1,42 +1,75 @@
 let img;
 let imgb;
-let filtro = true;
-let canvas;
+let isHovering = false;
 
 function preload() {
-  let imagePath = "../assets" + Math.floor(Math.random() * 4 + 1) + ".png";
-  console.log("Loading image:", imagePath);
-  img = loadImage(imagePath);
-  imgb = img;
+  let imagePath = "../assets/" + Math.floor(Math.random() * 4 + 1) + ".png";
+  img = loadImage(imagePath, imgLoaded);
+}
+
+function imgLoaded() {
+  imgb = img.get();
 }
 
 function setup() {
-  canvas = createCanvas(windowWidth, windowHeight);
-  canvas.position(0, 0);
-  canvas.style('z-index', '-1');
-}
-
-function mouseClicked() {
-  filtro = !filtro; // Toggle filter on mouse click
+  createCanvas(windowWidth, windowHeight);
+  
+  let canvas = document.querySelector('canvas');
+  canvas.addEventListener('mouseover', () => {
+    isHovering = true;
+  });
+  // canvas.addEventListener('mouseout', () => {
+  //   isHovering = false;
+  // });
 }
 
 function draw() {
-  background(255); // Clear background each frame
+  background(0); 
 
-  // Calculate center position
-  let centerX = windowWidth / 2 - imgb.width / 2;
-  let centerY = windowHeight / 2 - imgb.height / 2;
+  imageMode(CENTER);
+  let centerX = windowWidth / 4; // Adjust img positionnnn
+  let centerY = windowHeight / 2;
 
-  // Display the image in the center of the screen
-  image(imgb, centerX, centerY);
+  if (isHovering) {
+    imgb = img.get();
+    glitchImage(imgb, mouseX, mouseY);
+  }
 
-  // Your image manipulation code here
-  for (var i = 0; i < 3; i++) {
-    // Copying image parts
-    copy(img, int(random(100)) + int(i * 100 * (mouseX / windowWidth)), 0, 100, img.height, int(i * 350 * (mouseX / windowWidth)), 0, 100, imgb.height);
+  if (imgb) {
+    image(imgb, centerX, centerY);
+  }
+}
 
-    if (filtro) {
-      filter(INVERT); // Apply filter if required
+function glitchImage(img, mouseX, mouseY) {
+  img.loadPixels();
+  let numPixels = img.width * img.height;
+  let numGlitches = 30;
+
+  for (let i = 0; i < numGlitches; i++) {
+    let blockWidth = floor(random(50, 200));
+    let blockHeight = floor(random(50, 200));
+    let startX = floor(random(img.width - blockWidth));
+    let startY = floor(random(img.height - blockHeight));
+    let displacementX = floor(sin(frameCount * 0.01) * 30);
+    let displacementY = floor(cos(frameCount * 0.01) * 30);
+    
+    displacementX += floor(sin(frameCount * 0.01) * (mouseX - startX));
+    displacementY += floor(cos(frameCount * 0.01) * (mouseY - startY));
+    
+    for (let x = startX; x < startX + blockWidth; x++) {
+      for (let y = startY; y < startY + blockHeight; y++) {
+        let index = (x + y * img.width) * 4;
+        let newIndex = ((x + displacementX) + (y + displacementY) * img.width) * 4;
+
+        if (newIndex >= 0 && newIndex < img.pixels.length) {
+          img.pixels[index] = img.pixels[newIndex];
+          img.pixels[index + 1] = img.pixels[newIndex + 1];
+          img.pixels[index + 2] = img.pixels[newIndex + 2];
+          img.pixels[index + 3] = img.pixels[newIndex + 3];
+        }
+      }
     }
   }
+  
+  img.updatePixels();
 }
