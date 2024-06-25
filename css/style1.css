@@ -1,4 +1,5 @@
 body {
+  width: 90%;
   background-color: black;
   font-weight: normal;
 }
@@ -15,13 +16,14 @@ h1 {
 
 p {
   color: white;
-  margin-left: 2em;
-  margin-right: 35em;
+  margin-left: auto;
+  margin-right: auto;
   padding: 1em;
   font-size: 1em;
   font-family: 'Andale Mono';
   font-weight: normal;
   font-style: cursive;
+  width: 100%;
 }
 
 hr {
@@ -34,10 +36,12 @@ a {
   text-decoration: none;
 }
 
+.header {
+  width: 50%;
+}
+
 .content {
-  position: absolute;
-  top: 30%;
-  margin-top: 5%;
+  margin-top: 20%;
 }
 
 .fa-long-arrow-alt-left {
@@ -58,7 +62,8 @@ a {
 }
 
 .video {
-  margin-left: 5%;
+  width: 550px;
+  height: 250px;
 }
 
 .divisor {
@@ -68,4 +73,10 @@ a {
   position: absolute;
   margin-left: -50%;
   opacity: .5;
+}
+
+@media only screen and (max-width: 600px) {
+  .content {
+    margin-top: 80%;
+  }
 }

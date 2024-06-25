@@ -67,6 +67,7 @@ html, body {
   position: absolute;
   top: 40%;
   right: 5%;
+  max-width: 50%; 
 }
 
 @media (max-width: 1024px) {

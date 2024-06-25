@@ -1,46 +1,51 @@
-body{
+body {
+  width: 90%;
   background-color: black;
   font-weight: normal;
 }
 
-h1{
+h1 {
+  margin-left: 40%;
+  margin-top: -2%;
   font-family: 'Andale Mono';
   font-weight: normal;
   font-style: cursive;
   color: white;
-  font-size:2em;
-  }
-
-p {
-    color:white;
-    margin-right: 35em;
-    font-size:1em;
-    font-family: 'Andale Mono';
-    font-weight: normal;
-    font-style: cursive;
+  font-size: 5em;
 }
 
-hr{
+p {
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+  font-size: 1em;
+  font-family: 'Andale Mono';
+  font-weight: normal;
+  font-style: cursive;
+  width: 100%;
+}
+
+hr {
   position: absolute;
   width: 50%;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-.content{
-  position: absolute;
-  margin-top: 1%;
-  margin-left: 3%;
+.header {
+  width: 50%;
 }
 
-.fa-long-arrow-alt-left{
+
+.fa-long-arrow-alt-left {
   font-size: 2em;
   color: grey;
 }
 
-.atras{
+.atras {
   position: fixed;
   top: 0;
   left: 10px;
@@ -48,11 +53,6 @@ a{
   opacity: 1;
 }
 
-.atras:hover{
+.atras:hover {
   opacity: .5;
-}
-
-img{
-  position: absolute;
-  margin-left: 70%;
 }
