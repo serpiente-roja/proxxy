@@ -8,7 +8,7 @@ function setup() {
 	cnv.style('z-index', '-1');
 
 	imageMode(CENTER);
-	miImg = loadImage('../assets/max.jpeg')
+	miImg = loadImage('../assets/proxxy1.jpeg')
 
 	for (let i = 0; i < 100; i++) {
 		let cuadradoVisible = {

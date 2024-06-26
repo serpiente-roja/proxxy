@@ -1,46 +1,71 @@
-body{
+body {
   background-color: black;
   font-weight: normal;
 }
 
-h1{
+h1 {
   font-family: 'Andale Mono';
   font-weight: normal;
   font-style: cursive;
   color: white;
-  font-size:2em;
-  }
+  font-size: 2em;
+}
 
 p {
-    color:white;
-    margin-right: 35em;
-    font-size:1em;
-    font-family: 'Andale Mono';
-    font-weight: normal;
-    font-style: cursive;
+  color: white;
+  text-align: center;
+  font-size: 1em;
+  font-family: 'Andale Mono';
+  font-weight: normal;
+  font-style: cursive;
 }
 
-hr{
-  position: absolute;
-  width: 50%;
+img {
+  max-width: 350px;
+  max-height: 350px;
 }
 
-a{
+
+a {
   text-decoration: none;
 }
 
-.content{
-  position: absolute;
-  margin-top: 1%;
-  margin-left: 3%;
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  height: 80vh;
+  margin: 2% 0 0 0
 }
 
-.fa-long-arrow-alt-left{
+.portada {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+}
+
+.texto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+}
+
+.video {
+  margin-left: 5%;
+}
+
+.fa-long-arrow-alt-left {
   font-size: 2em;
   color: grey;
 }
 
-.atras{
+.atras {
   position: fixed;
   top: 0;
   left: 10px;
@@ -48,11 +73,7 @@ a{
   opacity: 1;
 }
 
-.atras:hover{
+.atras:hover {
   opacity: .5;
-}
-
-img{
-  position: absolute;
-  margin-left: 70%;
+  cursor: pointer;
 }
