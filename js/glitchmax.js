@@ -1,6 +1,7 @@
 let miImg;
 let cuadradosVisibles = [];
 let cuadradosInvisibles = [];
+let padding = 20;
 
 function setup() {
 	let cnv = createCanvas(windowWidth, 300);
@@ -55,5 +56,5 @@ function draw() {
 			square(cuadradosInvisibles[i].x, cuadradosInvisibles[i].y, cuadradosInvisibles[i].r);
 		}
 	}
-	image(miImg, width * 0.87, height * 0.55, 300, 300)
+	// image(miImg, width - 150, 150, 300, 300);
 }
