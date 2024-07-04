@@ -22,19 +22,15 @@ section {
   /* width: 80%;
   height: 80%; */
   z-index: -1;
-  /* Ensure video is behind any other content */
+
 }
 
 .vid video {
-  /* width: 100%;
-  height: 100%; */
   object-fit: cover;
-  /* Ensures video covers the entire container */
+
 }
 
 .atras {
   position: relative;
   z-index: 1;
-  /* Ensures the link is above the video */
-  /* Add other styles for your link as needed */
 }
