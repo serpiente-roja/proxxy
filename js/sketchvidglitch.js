@@ -4,8 +4,8 @@ let canvas;
 
 function preload() {
   video = createVideo(["../assets/glitchysadghosts.mp4"]);
-  video.hide(); // Hide the default video controls
-  video.loop(); // Loop the video
+  video.hide();
+  video.loop();
 }
 
 function setup() {
@@ -22,7 +22,7 @@ function draw() {
   // background(0)
   image(video, 500, 500, 500, 500);
   for (let i = 0; i < 3; i++) {
-    copy(video, int(random(100)) + int(i * 100 * (mouseX / windowWidth)), 0, 100, video.height, int(i * 350 * (mouseX / windowWidth)), 0, 100, video.height);
+    copy(video, int(random(100)) + int(i * 100 * (mouseX / windowWidth)), 0, 100, video.height, int(i * 550 * (mouseX / windowWidth)), 0, 100, video.height);
 
     if (filtro) {
       filter(INVERT);

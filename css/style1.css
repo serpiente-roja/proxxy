@@ -49,7 +49,6 @@ a {
 }
 
 .text-container {
-
   display: flex;
   justify-content: space-between;
   margin: 32px 32px 12px 32px;
@@ -70,7 +69,7 @@ a {
 }
 
 .atras {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 10px;
   width: 50px;
